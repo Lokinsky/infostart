@@ -13,10 +13,17 @@ class Router{
 
     }
     private function find_path(){
+        /**
+         * Функция, разбивающая маршрут к веб-ресурсу 
+         * на путь и гет-параметры.
+         */
         $this->path = explode('?',strtolower(($_SERVER['REQUEST_URI'])))[0];
     }
     private function create_path()
     {
+        /**
+         * Функция создания пути до контроллера-обработчика
+         */
         include 'routes.php';
         $this->type = explode('/',explode('?',$this->path)[0])[1];
 
@@ -26,9 +33,17 @@ class Router{
     }
     protected function findRoute()
     {
+        /**
+         * Функция для определения маршрута 
+         * и вызова контроллера-обработчика
+         */
+        if(!isset($this->routes[$this->type][$this->path])){
+            http_response_code(404);
+            die("Not found");
+        }
         $class = new $this->routes[$this->type][$this->path]['class']();
         $eval = $this->routes[$this->type][$this->path]['function'];
-        return call_user_func([$class,$eval]);
+        call_user_func([$class,$eval]);
     }
 
 }
