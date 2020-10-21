@@ -8,6 +8,10 @@
 </head>
 <body>
     <div class="container">
+        <div>
+            <a href="/callback">Обратная форма связи</a>
+            <a href="/result">Результат</a>
+        </div>
         <div class="content">
             <form action="/api/callback/comment" method="POST">
                 <input name="csrf" type="text" hidden value=<?= App\Middleware\CSRF::get_token()?>>

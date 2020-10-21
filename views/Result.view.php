@@ -10,6 +10,11 @@
 
 <body>
     <div class="container">
+        <div>
+            <a href="/callback">Обратная форма связи</a>
+            <a href="/result">Результат</a>
+        </div>
+        
         <div class="content">
             <div class="table">
                 <div class="header">
