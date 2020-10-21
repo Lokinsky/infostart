@@ -15,7 +15,7 @@ class Callback extends Controller{
          * Конуструктор базового представления
          * @var view
          */
-        parent::view('Callback',['title'=>'Hello']);
+        parent::view('Callback',['title'=>'Callbacks']);
     }
     public function apiPutComment($request = null)
     {
