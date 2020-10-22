@@ -28,10 +28,10 @@ class Callback extends Controller{
         CSRF::validate($_POST['csrf'], function () use ($data)
             {
                 $callback = new CallbackModel();
-                return $callback->insert($data);
+                $callback->insert($data);
+                header("Location: /result");
             }
         );
-        header("Location: /result");
     }
 }
 
